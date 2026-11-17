@@ -712,8 +712,8 @@ async function montar(d) {
   const [casa] = await Promise.all([
     Promise.resolve(casaDesdeConfig()),
     new GLTFLoader().loadAsync('./modelos/personas/xbot.glb').then((g) => { XBOT = g; }).catch((e) => console.warn('personas', e)),
-    ...M.map((m) => cargar(m, `/modelos/muebles/${m}.glb`).catch((e) => console.warn(m, e))),
-    ...C.map((m) => cargar(m, `/modelos/ciudad/${m}.glb`).catch((e) => console.warn(m, e))),
+    ...M.map((m) => cargar(m, `./modelos/muebles/${m}.glb`).catch((e) => console.warn(m, e))),
+    ...C.map((m) => cargar(m, `./modelos/ciudad/${m}.glb`).catch((e) => console.warn(m, e))),
   ]);
   montarEdificios(casa, d); montarCiudad(); montarOficina(); montarRecepcion();
   for (const [id, e] of Object.entries(EDIF)) {   // ocio de los agentes: barra de chips (se recargan) y mesa de hologramas (juegan en pareja)
